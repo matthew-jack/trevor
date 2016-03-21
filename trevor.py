@@ -5,7 +5,6 @@ import sys
 import os
 import json
 import re
-import logging
 import string
 import xml.etree.ElementTree as ET
 from urllib.request import HTTPHandler, Request, build_opener
@@ -150,12 +149,21 @@ class docHandler:
         # Variables
         self.disease = disease
         self.num_articles = num_articles
+
     ##### UIDS #####
+
+    def slugify(self, unslug, delim=u'-'):
+        _punct_re = re.compile(r'[\t !"#$%&\'()*\-/<=>?@\[\\\]^_`{|},.]+')
+        result = []
+        for word in _punct_re.split(unslug.lower()):
+            result.extend(word.split())
+        return delim.join(result)
 
     def get_uids(self):
         retmode = "json"
         db = "pubmed"
         term = self.disease
+        term = self.slugify(term)
         retmax = self.num_articles
         url = self.search_base_url + "db=" + db + "&term=" + term + "&retmax=" + retmax + "&retmode=" + retmode
 
@@ -210,5 +218,6 @@ class docHandler:
 
 # Main program
 if __name__ == '__main__':
+
     port = int(os.environ.get('PORT', 5000))
-    app.run(host = '0.0.0.0', port = port)
+    app.run(host = '0.0.0.0', port = port, debug=True)
