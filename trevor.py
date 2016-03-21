@@ -5,11 +5,14 @@ import sys
 import os
 import json
 import re
+import logging
 import string
 import xml.etree.ElementTree as ET
 from urllib.request import HTTPHandler, Request, build_opener
 from flask import Flask, render_template, request
 app = Flask(__name__)
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 # Web app stuff
 
 @app.route('/')
@@ -18,13 +21,13 @@ def main():
 
 @app.route("/run", methods=['post'])
 def run():
-    disease = request.args.post('disease', '')
-    num_articles = request.args.post('num_articles', '')
-    num_words = request.args.post('num_words', '')
+    disease = request.form['disease']
+    num_articles = request.form['num_articles']
+    num_words = request.form['num_words']
     instance = trevor(disease, num_articles, num_words)
     return view_data()
 
-@app.route("/view_data", methods=['post'])
+@app.route("/view_data")
 def view_data():
     return render_template('data.html')
 

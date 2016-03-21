@@ -1,81 +1,801 @@
 { "name": "Visual Medicine","children": [ {
-   "name": "tcf",
+   "children": [
+      {
+         "name": "associated",
+         "size": 45375
+      }
+   ],
+   "name": "associated"
+},{
+   "children": [
+      {
+         "name": "identify",
+         "size": 16500
+      }
+   ],
+   "name": "identify"
+},{
+   "children": [
+      {
+         "name": "weight",
+         "size": 16500
+      }
+   ],
+   "name": "weight"
+},{
+   "children": [
+      {
+         "name": "blood",
+         "size": 15675
+      }
+   ],
+   "name": "blood"
+},{
+   "children": [
+      {
+         "name": "including",
+         "size": 13200
+      }
+   ],
+   "name": "including"
+},{
+   "children": [
+      {
+         "name": "impact",
+         "size": 13200
+      }
+   ],
+   "name": "impact"
+},{
+   "children": [
+      {
+         "name": "potential",
+         "size": 13200
+      }
+   ],
+   "name": "potential"
+},{
+   "children": [
+      {
+         "name": "evidence",
+         "size": 13200
+      }
+   ],
+   "name": "evidence"
+},{
+   "children": [
+      {
+         "name": "compared",
+         "size": 13200
+      }
+   ],
+   "name": "compared"
+},{
+   "children": [
+      {
+         "name": "generic",
+         "size": 13200
+      }
+   ],
+   "name": "generic"
+},{
+   "children": [
+      {
+         "name": "retinal",
+         "size": 13200
+      }
+   ],
+   "name": "retinal"
+},{
+   "children": [
+      {
+         "name": "sequencing",
+         "size": 12375
+      }
+   ],
+   "name": "sequencing"
+},{
+   "children": [
+      {
+         "name": "risk",
+         "size": 12375
+      }
+   ],
+   "name": "risk"
+},{
+   "children": [
+      {
+         "name": "breast",
+         "size": 12375
+      }
+   ],
+   "name": "breast"
+},{
+   "children": [
+      {
+         "name": "protein",
+         "size": 12375
+      }
+   ],
+   "name": "protein"
+},{
+   "children": [
+      {
+         "name": "total",
+         "size": 11550
+      }
+   ],
+   "name": "total"
+},{
+   "children": [
+      {
+         "name": "reported",
+         "size": 11550
+      }
+   ],
+   "name": "reported"
+},{
+   "children": [
+      {
+         "name": "novel",
+         "size": 11550
+      }
+   ],
+   "name": "novel"
+},{
+   "children": [
+      {
+         "name": "provide",
+         "size": 10725
+      }
+   ],
+   "name": "provide"
+},{
+   "children": [
+      {
+         "name": "displays",
+         "size": 10725
+      }
+   ],
+   "name": "displays"
+},{
+   "children": [
+      {
+         "name": "genetic",
+         "size": 10725
+      }
+   ],
+   "name": "genetic"
+},{
+   "children": [
+      {
+         "name": "will",
+         "size": 9900
+      }
+   ],
+   "name": "will"
+},{
+   "children": [
+      {
+         "name": "future",
+         "size": 9900
+      }
+   ],
+   "name": "future"
+},{
+   "children": [
+      {
+         "name": "large",
+         "size": 9900
+      }
+   ],
+   "name": "large"
+},{
+   "children": [
+      {
+         "name": "systems",
+         "size": 9900
+      }
+   ],
+   "name": "systems"
+},{
+   "children": [
+      {
+         "name": "small",
+         "size": 9900
+      }
+   ],
+   "name": "small"
+},{
+   "children": [
+      {
+         "name": "increased",
+         "size": 9075
+      }
+   ],
+   "name": "increased"
+},{
+   "children": [
+      {
+         "name": "primary",
+         "size": 9075
+      }
+   ],
+   "name": "primary"
+},{
+   "children": [
+      {
+         "name": "increase",
+         "size": 9075
+      }
+   ],
+   "name": "increase"
+},{
+   "children": [
+      {
+         "name": "conducted",
+         "size": 9075
+      }
+   ],
+   "name": "conducted"
+},{
+   "children": [
+      {
+         "name": "identification",
+         "size": 9075
+      }
+   ],
+   "name": "identification"
+},{
+   "children": [
+      {
+         "name": "people",
+         "size": 9075
+      }
+   ],
+   "name": "people"
+},{
+   "children": [
+      {
+         "name": "lower",
+         "size": 9075
+      }
+   ],
+   "name": "lower"
+},{
+   "children": [
+      {
+         "name": "neural",
+         "size": 9075
+      }
+   ],
+   "name": "neural"
+},{
+   "children": [
+      {
+         "name": "linked",
+         "size": 9075
+      }
+   ],
+   "name": "linked"
+},{
+   "children": [
+      {
+         "name": "clinical",
+         "size": 9075
+      }
+   ],
+   "name": "clinical"
+},{
+   "children": [
+      {
+         "name": "estimated",
+         "size": 8250
+      }
+   ],
+   "name": "estimated"
+},{
+   "children": [
+      {
+         "name": "current",
+         "size": 8250
+      }
+   ],
+   "name": "current"
+},{
+   "children": [
+      {
+         "name": "intervention",
+         "size": 8250
+      }
+   ],
+   "name": "intervention"
+},{
+   "children": [
+      {
+         "name": "pilus",
+         "size": 8250
+      }
+   ],
+   "name": "pilus"
+},{
+   "children": [
+      {
+         "name": "investigate",
+         "size": 8250
+      }
+   ],
+   "name": "investigate"
+},{
+   "children": [
+      {
+         "name": "report",
+         "size": 8250
+      }
+   ],
+   "name": "report"
+},{
+   "children": [
+      {
+         "name": "improve",
+         "size": 8250
+      }
+   ],
+   "name": "improve"
+},{
+   "children": [
+      {
+         "name": "explore",
+         "size": 7425
+      }
+   ],
+   "name": "explore"
+},{
+   "children": [
+      {
+         "name": "confidence",
+         "size": 7425
+      }
+   ],
+   "name": "confidence"
+},{
+   "children": [
+      {
+         "name": "cohort",
+         "size": 7425
+      }
+   ],
+   "name": "cohort"
+},{
+   "children": [
+      {
+         "name": "rate",
+         "size": 7425
+      }
+   ],
+   "name": "rate"
+},{
+   "children": [
+      {
+         "name": "practices",
+         "size": 7425
+      }
+   ],
+   "name": "practices"
+},{
+   "children": [
+      {
+         "name": "comprehensive",
+         "size": 7425
+      }
+   ],
+   "name": "comprehensive"
+},{
+   "children": [
+      {
+         "name": "key",
+         "size": 7425
+      }
+   ],
+   "name": "key"
+},{
+   "children": [
+      {
+         "name": "models",
+         "size": 7425
+      }
+   ],
+   "name": "models"
+},{
+   "children": [
+      {
+         "name": "studies",
+         "size": 7425
+      }
+   ],
+   "name": "studies"
+},{
+   "children": [
+      {
+         "name": "mutant",
+         "size": 7425
+      }
+   ],
+   "name": "mutant"
+},{
+   "children": [
+      {
+         "name": "observed",
+         "size": 7425
+      }
+   ],
+   "name": "observed"
+},{
+   "children": [
+      {
+         "name": "result",
+         "size": 7425
+      }
+   ],
+   "name": "result"
+},{
+   "children": [
+      {
+         "name": "recessive",
+         "size": 7425
+      }
+   ],
+   "name": "recessive"
+},{
    "children": [
       {
          "name": "tcf",
          "size": 7425
       }
-   ]
+   ],
+   "name": "tcf"
 },{
-   "name": "gestational",
    "children": [
       {
-         "name": "gestational",
+         "name": "brand",
+         "size": 7425
+      }
+   ],
+   "name": "brand"
+},{
+   "children": [
+      {
+         "name": "mechanisms",
+         "size": 7425
+      }
+   ],
+   "name": "mechanisms"
+},{
+   "children": [
+      {
+         "name": "complex",
+         "size": 6600
+      }
+   ],
+   "name": "complex"
+},{
+   "children": [
+      {
+         "name": "sample",
+         "size": 6600
+      }
+   ],
+   "name": "sample"
+},{
+   "children": [
+      {
+         "name": "higher",
+         "size": 6600
+      }
+   ],
+   "name": "higher"
+},{
+   "children": [
+      {
+         "name": "versus",
+         "size": 6600
+      }
+   ],
+   "name": "versus"
+},{
+   "children": [
+      {
+         "name": "resource",
+         "size": 6600
+      }
+   ],
+   "name": "resource"
+},{
+   "children": [
+      {
+         "name": "bacterial",
+         "size": 6600
+      }
+   ],
+   "name": "bacterial"
+},{
+   "children": [
+      {
+         "name": "parallel",
+         "size": 6600
+      }
+   ],
+   "name": "parallel"
+},{
+   "children": [
+      {
+         "name": "subunits",
+         "size": 6600
+      }
+   ],
+   "name": "subunits"
+},{
+   "children": [
+      {
+         "name": "young",
+         "size": 6600
+      }
+   ],
+   "name": "young"
+},{
+   "children": [
+      {
+         "name": "granted",
+         "size": 6600
+      }
+   ],
+   "name": "granted"
+},{
+   "children": [
+      {
+         "name": "understanding",
+         "size": 6600
+      }
+   ],
+   "name": "understanding"
+},{
+   "children": [
+      {
+         "name": "palliative",
+         "size": 6600
+      }
+   ],
+   "name": "palliative"
+},{
+   "children": [
+      {
+         "name": "support",
+         "size": 6600
+      }
+   ],
+   "name": "support"
+},{
+   "children": [
+      {
+         "name": "patient",
+         "size": 6600
+      }
+   ],
+   "name": "patient"
+},{
+   "children": [
+      {
+         "name": "permission",
+         "size": 6600
+      }
+   ],
+   "name": "permission"
+},{
+   "children": [
+      {
+         "name": "era",
+         "size": 6600
+      }
+   ],
+   "name": "era"
+},{
+   "children": [
+      {
+         "name": "rights",
+         "size": 6600
+      }
+   ],
+   "name": "rights"
+},{
+   "children": [
+      {
+         "name": "major",
+         "size": 6600
+      }
+   ],
+   "name": "major"
+},{
+   "children": [
+      {
+         "name": "history",
+         "size": 6600
+      }
+   ],
+   "name": "history"
+},{
+   "children": [
+      {
+         "name": "increasing",
+         "size": 6600
+      }
+   ],
+   "name": "increasing"
+},{
+   "children": [
+      {
+         "name": "effects",
+         "size": 6600
+      }
+   ],
+   "name": "effects"
+},{
+   "children": [
+      {
+         "name": "involved",
+         "size": 6600
+      }
+   ],
+   "name": "involved"
+},{
+   "children": [
+      {
+         "name": "expression",
+         "size": 6600
+      }
+   ],
+   "name": "expression"
+},{
+   "children": [
+      {
+         "name": "indicate",
+         "size": 6600
+      }
+   ],
+   "name": "indicate"
+},{
+   "children": [
+      {
+         "name": "collected",
+         "size": 6600
+      }
+   ],
+   "name": "collected"
+},{
+   "children": [
+      {
+         "name": "ethnic",
+         "size": 6600
+      }
+   ],
+   "name": "ethnic"
+},{
+   "children": [
+      {
+         "name": "active",
+         "size": 6600
+      }
+   ],
+   "name": "active"
+},{
+   "children": [
+      {
+         "name": "cancer",
+         "size": 6600
+      }
+   ],
+   "name": "cancer"
+},{
+   "children": [
+      {
+         "name": "single",
+         "size": 6600
+      }
+   ],
+   "name": "single"
+},{
+   "children": [
+      {
+         "name": "mice",
+         "size": 6600
+      }
+   ],
+   "name": "mice"
+},{
+   "children": [
+      {
+         "name": "responsible",
          "size": 5775
       }
-   ]
+   ],
+   "name": "responsible"
 },{
-   "name": "binding",
    "children": [
       {
-         "name": "binding",
+         "name": "suggesting",
          "size": 5775
       }
-   ]
+   ],
+   "name": "suggesting"
 },{
-   "name": "type",
    "children": [
       {
-         "name": "type",
-         "size": 4950
+         "name": "levels",
+         "size": 5775
       }
-   ]
+   ],
+   "name": "levels"
 },{
-   "name": "novel",
    "children": [
       {
-         "name": "novel",
-         "size": 4950
+         "name": "12",
+         "size": 5775
       }
-   ]
+   ],
+   "name": "12"
 },{
-   "name": "orangutans",
    "children": [
       {
-         "name": "orangutans",
-         "size": 4950
+         "name": "play",
+         "size": 5775
       }
-   ]
+   ],
+   "name": "play"
 },{
-   "name": "gene",
    "children": [
       {
-         "name": "gene",
-         "size": 4125
+         "name": "regression",
+         "size": 5775
       }
-   ]
+   ],
+   "name": "regression"
 },{
-   "name": "epithelial",
    "children": [
       {
-         "name": "epithelial",
-         "size": 4125
+         "name": "acid",
+         "size": 5775
       }
-   ]
+   ],
+   "name": "acid"
 },{
-   "name": "wild",
    "children": [
       {
-         "name": "wild",
-         "size": 4125
+         "name": "developing",
+         "size": 5775
       }
-   ]
+   ],
+   "name": "developing"
 },{
-   "name": "human",
    "children": [
       {
-         "name": "human",
-         "size": 4125
+         "name": "essential",
+         "size": 5775
       }
-   ]
+   ],
+   "name": "essential"
+},{
+   "children": [
+      {
+         "name": "substantial",
+         "size": 5775
+      }
+   ],
+   "name": "substantial"
+},{
+   "children": [
+      {
+         "name": "aim",
+         "size": 5775
+      }
+   ],
+   "name": "aim"
 } ] }
