@@ -20,7 +20,6 @@ def main():
 
 @app.route("/run", methods=['post'])
 def run():
-    print(request.form)
     if (request.form['disease'] != '') and (request.form['num_articles'] != '') and (request.form['num_words'] != ''):
         disease = request.form['disease']
         num_articles = request.form['num_articles']
@@ -37,7 +36,7 @@ def view_data():
 
 class trevor:
 
-    def __init__(self, disease="celiac", num_articles="100", num_words="50"):
+    def __init__(self, disease, num_articles, num_words):
         # Start it up
         handler = docHandler(disease, num_articles)
         # Get UIDs of the documents we want
@@ -55,7 +54,7 @@ class trevor:
 
 class dataViz:
 
-    def __init__(self, index, num_words="50"):
+    def __init__(self, index, num_words):
         self.index = index
         self.sizeFactor = 825
         self.num_words = num_words
