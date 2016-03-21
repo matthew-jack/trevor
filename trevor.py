@@ -15,15 +15,15 @@ app = Flask(__name__)
 def main():
     return render_template('index.html')
 
-@app.route("/get_params", methods=['GET'])
-def get_params():
-    disease = request.args.get('disease', '')
-    num_articles = request.args.get('num_articles', '')
-    num_words = request.args.get('num_words', '')
+@app.route("/run", methods=['post'])
+def run():
+    disease = request.args.post('disease', '')
+    num_articles = request.args.post('num_articles', '')
+    num_words = request.args.post('num_words', '')
     instance = trevor(disease, num_articles, num_words)
     return view_data()
 
-@app.route("/view_data", methods=['GET'])
+@app.route("/view_data", methods=['post'])
 def view_data():
     return render_template('data.html')
 
