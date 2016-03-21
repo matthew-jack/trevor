@@ -1,0 +1,281 @@
+{ "name": "Visual Medicine","children": [ {
+   "name": "aortic",
+   "children": [
+      {
+         "name": "aortic",
+         "size": 16500
+      }
+   ]
+},{
+   "name": "pancreatic",
+   "children": [
+      {
+         "name": "pancreatic",
+         "size": 14025
+      }
+   ]
+},{
+   "name": "associated",
+   "children": [
+      {
+         "name": "associated",
+         "size": 13200
+      }
+   ]
+},{
+   "name": "duodenal",
+   "children": [
+      {
+         "name": "duodenal",
+         "size": 13200
+      }
+   ]
+},{
+   "name": "abdominal",
+   "children": [
+      {
+         "name": "abdominal",
+         "size": 10725
+      }
+   ]
+},{
+   "name": "gluten",
+   "children": [
+      {
+         "name": "gluten",
+         "size": 10725
+      }
+   ]
+},{
+   "name": "group",
+   "children": [
+      {
+         "name": "group",
+         "size": 10725
+      }
+   ]
+},{
+   "name": "rights",
+   "children": [
+      {
+         "name": "rights",
+         "size": 9900
+      }
+   ]
+},{
+   "name": "2016",
+   "children": [
+      {
+         "name": "2016",
+         "size": 9075
+      }
+   ]
+},{
+   "name": "case",
+   "children": [
+      {
+         "name": "case",
+         "size": 9075
+      }
+   ]
+},{
+   "name": "gastric",
+   "children": [
+      {
+         "name": "gastric",
+         "size": 9075
+      }
+   ]
+},{
+   "name": "approach",
+   "children": [
+      {
+         "name": "approach",
+         "size": 9075
+      }
+   ]
+},{
+   "name": "normal",
+   "children": [
+      {
+         "name": "normal",
+         "size": 9075
+      }
+   ]
+},{
+   "name": "will",
+   "children": [
+      {
+         "name": "will",
+         "size": 9075
+      }
+   ]
+},{
+   "name": "postoperative",
+   "children": [
+      {
+         "name": "postoperative",
+         "size": 9075
+      }
+   ]
+},{
+   "name": "increased",
+   "children": [
+      {
+         "name": "increased",
+         "size": 8250
+      }
+   ]
+},{
+   "name": "study",
+   "children": [
+      {
+         "name": "study",
+         "size": 8250
+      }
+   ]
+},{
+   "name": "oral",
+   "children": [
+      {
+         "name": "oral",
+         "size": 7425
+      }
+   ]
+},{
+   "name": "inflammatory",
+   "children": [
+      {
+         "name": "inflammatory",
+         "size": 7425
+      }
+   ]
+},{
+   "name": "revealed",
+   "children": [
+      {
+         "name": "revealed",
+         "size": 7425
+      }
+   ]
+},{
+   "name": "diagnosis",
+   "children": [
+      {
+         "name": "diagnosis",
+         "size": 7425
+      }
+   ]
+},{
+   "name": "compared",
+   "children": [
+      {
+         "name": "compared",
+         "size": 7425
+      }
+   ]
+},{
+   "name": "survival",
+   "children": [
+      {
+         "name": "survival",
+         "size": 7425
+      }
+   ]
+},{
+   "name": "high",
+   "children": [
+      {
+         "name": "high",
+         "size": 6600
+      }
+   ]
+},{
+   "name": "report",
+   "children": [
+      {
+         "name": "report",
+         "size": 6600
+      }
+   ]
+},{
+   "name": "computed",
+   "children": [
+      {
+         "name": "computed",
+         "size": 6600
+      }
+   ]
+},{
+   "name": "artery",
+   "children": [
+      {
+         "name": "artery",
+         "size": 6600
+      }
+   ]
+},{
+   "name": "incidence",
+   "children": [
+      {
+         "name": "incidence",
+         "size": 6600
+      }
+   ]
+},{
+   "name": "patient",
+   "children": [
+      {
+         "name": "patient",
+         "size": 6600
+      }
+   ]
+},{
+   "name": "cell",
+   "children": [
+      {
+         "name": "cell",
+         "size": 6600
+      }
+   ]
+},{
+   "name": "chronic",
+   "children": [
+      {
+         "name": "chronic",
+         "size": 6600
+      }
+   ]
+},{
+   "name": "levels",
+   "children": [
+      {
+         "name": "levels",
+         "size": 6600
+      }
+   ]
+},{
+   "name": "intestinal",
+   "children": [
+      {
+         "name": "intestinal",
+         "size": 6600
+      }
+   ]
+},{
+   "name": "pooled",
+   "children": [
+      {
+         "name": "pooled",
+         "size": 6600
+      }
+   ]
+},{
+   "name": "arterial",
+   "children": [
+      {
+         "name": "arterial",
+         "size": 6600
+      }
+   ]
+} ] }

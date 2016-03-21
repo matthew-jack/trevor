@@ -1,95 +1,82 @@
-# Matthew Jack
+# /usr/bin/python3
 
 import sys
 import json
-import argparse
+import re
+import string
 import xml.etree.ElementTree as ET
 from urllib.request import HTTPHandler, Request, build_opener
+from flask import Flask, render_template, request
+app = Flask(__name__)
+app.config['DEBUG'] = True
+# Web app stuff
 
+@app.route('/')
 def main():
-    # Options
-    parser = argparse.ArgumentParser(description='Visualize common langauge across pathological research')
-    parser.add_argument('-c', '--count', action='store', help='limit the number of articles crawled (1-10000)',
-                        default=50)
-    parser.add_argument("disease", type=str, help='specify which disease to crawl for')
-    parser.add_argument('-v', '--version', action='version', version='%(prog)s 1.0')
-    args = parser.parse_args()
+    return render_template('index.html')
 
-    # Start it up
-    handler = docHandler()
-    # Get UIDs of the documents we want
-    uids = handler.get_uids(args.disease)
-    # Format the data to be traversed
-    abstracts = handler.get_abstracts(uids)
-    # Calculate word frequencies
-    indexer = traverseText(abstracts)
-    index = indexer.buildWordIndex()
-    # Create data visualization
-    viz = dataViz(index)
-    viz.populateJSON()
-    # Done!
-    print(" [#] Complete.")
+@app.route("/get_params", methods=['GET'])
+def get_params():
+    disease = request.args.get('disease', '')
+    num_articles = request.args.get('num_articles', '')
+    num_words = request.args.get('num_words', '')
+    instance = trevor(disease, num_articles, num_words)
+    return view_data()
 
-    return 0
+@app.route("/view_data", methods=['GET'])
+def view_data():
+    return render_template('data.html')
+
+# Python stuff
+
+class trevor:
+
+    def __init__(self, disease="celiac", num_articles="100", num_words="50"):
+        # Start it up
+        handler = docHandler(disease, num_articles)
+        # Get UIDs of the documents we want
+        # CHANGE
+        uids = handler.get_uids()
+        # Format the data to be traversed
+        abstracts = handler.get_abstracts(uids)
+        # Calculate word frequencies
+        indexer = traverseText(abstracts)
+        index = indexer.freqList
+        # Create data visualization
+        viz = dataViz(index, num_words)
+        viz.populateJSON()
+        # Done!
 
 class dataViz:
 
-    def __init__(self, index):
+    def __init__(self, index, num_words="50"):
         self.index = index
-        self.sizeFactor = 625
+        self.sizeFactor = 825
+        self.num_words = num_words
 
     def populateJSON(self):
         print(" [+] Generating visualization...")
         # Create JSON skeleton
-        skeleton = self.createJSONSkeleton()
+        skeleton = self.index[:int(self.num_words)]
+        # Get rid of pesky empty lists
+        skeleton = [x for x in skeleton if x]
         master = {}
         jsonString = "{ \"name\": \"Visual Medicine\",\"children\": [ "
         # Generate the JSON visualization data
-        j = 0
+        i = 0
         for parent in skeleton:
-            j += 1
-            i = 0
             temp = list()
-            while i < len(parent):
-                temp.append(dict(name=parent[i][0], size=int(parent[i][1])*self.sizeFactor))
-                i += 1
-            master.update(name=parent[0][0], children=temp)
-            if j < len(skeleton):
-                jsonString = jsonString + json.dumps(master, indent=3) + ", "
-            else:
-                jsonString = jsonString + json.dumps(master, indent=3) + " ] }"
+            temp.append(dict(name=parent[0], size=int(parent[1])*self.sizeFactor))
+            master.update(name=parent[0], children=temp)
+            i += 1
+            jsonString = jsonString + json.dumps(master, indent=3) + ","
+
+        jsonString = jsonString[:-1] + " ] }"
         # Write to file
-        f = open('python_output.json', 'w')
+        f = open('static/data.json', 'w')
         f.write(jsonString)
         f.close()
         return
-
-    def createJSONSkeleton(self):
-        # Start from element 1, if it's the same size, append it to a list.
-        # if it's bigger, start a new list
-        skeleton = []
-        currentList = []
-        currentList.append(self.index[0])
-        i = 1
-        while i < len(self.index):
-            # To avoid out-of-bounds stuff
-            if i == (len(self.index) - 1):
-                if self.index[i][1] == self.index[i-1][1]:
-                    currentList.append(self.index[i])
-                else:
-                    skeleton.append(currentList[:])
-                    currentList = list()
-                break
-
-            if self.index[i+1][1] > self.index[i][1]:
-                skeleton.append(currentList[:])
-                currentList = list()
-            else:
-                currentList.append(self.index[i])
-            i += 1
-        # Get rid of pesky empty lists
-        skeleton = [x for x in skeleton if x]
-        return skeleton
 
 class traverseText:
     # Algorithm:
@@ -101,10 +88,14 @@ class traverseText:
     def __init__(self, text):
         # Using a dict initiatlly because
         # it's easy to stick a value in a key
+        # Set up vars
         self.text = text
         self.freqDict = dict()
         self.freqList = []
-        self.omit = self.loadOmitWords("omit_words")
+        self.omit = self.loadOmitWords("static/omit_words")
+        # Run methods
+        self.buildWordIndex()
+        self.sortWordIndex()
 
     def loadOmitWords(self, filename):
         omit = []
@@ -116,51 +107,59 @@ class traverseText:
 
     def buildWordIndex(self):
         print(" [+] Building index...")
+        regex = re.compile('[%s]' % re.escape(string.punctuation))
         for paper in self.text:
             # Now we're in a list that holds one abstract
             for word in paper:
                 # Now it's a string
                 for word in word.split():
                     # Down to words
-                    if word not in self.omit:
-                        if (word != '') and (not word.isspace()) and (word is not None):
-                            if not word.isnumeric():
-                                if word.isalnum():
-                                    if word not in self.freqDict:
-                                        self.freqDict[word] = 1
-                                    else:
-                                        self.freqDict[word] += 1
-        return self.sortWordIndex()
+                    if self.evaluateWord(word):
+                        if word not in self.freqDict:
+                            self.freqDict[regex.sub('', word.lower())] = 1
+                        else:
+                            self.freqDict[regex.sub('', word.lower())] += 1
+        return
 
     def sortWordIndex(self):
         for key in self.freqDict:
             self.freqList.append((key, self.freqDict[key]))
         # Sort by the 1st element of the tuple, the frequency
-        self.freqList.sort(key=lambda x: x[1])
-        return self.freqList
+        self.freqList.sort(key=lambda x: x[1], reverse=True)
+        return
+
+    def evaluateWord(self, word):
+        # Evaluate if the word should be there
+        flag = 1
+        if word.lower() in self.omit:
+            flag = 0
+        return flag
+
 
 class docHandler:
 
-    def __init__(self):
+    def __init__(self, disease, num_articles):
         # Configure web interface
         self.opener = build_opener(HTTPHandler)
         self.headers = 'Mozilla/5.0 (X11; Linux x86_64; rv:27.0) Gecko/20100101 Firefox/27.0'
         self.search_base_url = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?'
         self.fetch_base_url = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?'
-
+        # Variables
+        self.disease = disease
+        self.num_articles = num_articles
     ##### UIDS #####
 
-    def get_uids(self, disease):
-        db = "pubmed"
-        term = disease.replace("'","\'")
-        retmax = "10"
+    def get_uids(self):
         retmode = "json"
+        db = "pubmed"
+        term = self.disease
+        retmax = self.num_articles
         url = self.search_base_url + "db=" + db + "&term=" + term + "&retmax=" + retmax + "&retmode=" + retmode
 
         err_msg = ' [-] Request failed'
         try:
             print(" [+] Getting IDs of documents related to " + term + "...")
-            print(' [+] Requesting %s' % url)
+            # print(' [+] Requesting %s' % url)
 
             req = Request(url, headers={'User-Agent': self.headers})
             hdl = self.opener.open(req)
@@ -196,7 +195,7 @@ class docHandler:
         err_msg = ' [-] Request failed'
         try:
             print(" [+] Fetching abstracts...")
-            print(' [+] Requesting %s' % url)
+            # print(' [+] Requesting %s' % url)
 
             req = Request(url=url, headers={'User-Agent': self.headers})
             hdl = self.opener.open(req)
@@ -219,5 +218,5 @@ class docHandler:
 
 
 # Main program
-if __name__ == "__main__":
-    sys.exit(main())
+if __name__ == '__main__':
+    app.run()
