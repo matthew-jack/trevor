@@ -8,7 +8,6 @@ import xml.etree.ElementTree as ET
 from urllib.request import HTTPHandler, Request, build_opener
 from flask import Flask, render_template, request
 app = Flask(__name__)
-app.config['DEBUG'] = True
 # Web app stuff
 
 @app.route('/')
