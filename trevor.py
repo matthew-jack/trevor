@@ -141,7 +141,7 @@ class docHandler:
     def __init__(self, disease, num_articles):
         # Configure web interface
         self.opener = build_opener(HTTPHandler)
-        self.headers = 'Mozilla/5.0 (X11; Linux x86_64; rv:27.0) Gecko/20100101 Firefox/27.0'
+        self.headers = 'Mozilla/5.0 (X11; Linux x86_64; rv:27.0) Gecko/20100101 Firefox/27.0 Cache-Control: no-cache Pragma: no-cache'
         self.search_base_url = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?'
         self.fetch_base_url = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?'
         # Variables
