@@ -1,6 +1,7 @@
-# /usr/bin/python3
+# Matthew Jack
 
 import sys
+import os
 import json
 import re
 import string
