@@ -11,8 +11,7 @@ import xml.etree.ElementTree as ET
 from urllib.request import HTTPHandler, Request, build_opener
 from flask import Flask, render_template, request
 app = Flask(__name__)
-app.logger.addHandler(logging.StreamHandler(sys.stdout))
-app.logger.setLevel(logging.ERROR)
+
 # Web app stuff
 
 @app.route('/')
@@ -21,11 +20,14 @@ def main():
 
 @app.route("/run", methods=['post'])
 def run():
-    disease = request.form['disease']
-    num_articles = request.form['num_articles']
-    num_words = request.form['num_words']
-    instance = trevor(disease, num_articles, num_words)
-    return view_data()
+    print(request.form)
+    if (request.form['disease'] != '') and (request.form['num_articles'] != '') and (request.form['num_words'] != ''):
+        disease = request.form['disease']
+        num_articles = request.form['num_articles']
+        num_words = request.form['num_words']
+        instance = trevor(disease, num_articles, num_words)
+        return view_data()
+    return render_template('error.html')
 
 @app.route("/view_data")
 def view_data():
@@ -59,7 +61,6 @@ class dataViz:
         self.num_words = num_words
 
     def populateJSON(self):
-        print(" [+] Generating visualization...")
         # Create JSON skeleton
         skeleton = self.index[:int(self.num_words)]
         # Get rid of pesky empty lists
@@ -110,7 +111,6 @@ class traverseText:
         return omit
 
     def buildWordIndex(self):
-        print(" [+] Building index...")
         regex = re.compile('[%s]' % re.escape(string.punctuation))
         for paper in self.text:
             # Now we're in a list that holds one abstract
@@ -160,18 +160,13 @@ class docHandler:
         retmax = self.num_articles
         url = self.search_base_url + "db=" + db + "&term=" + term + "&retmax=" + retmax + "&retmode=" + retmode
 
-        err_msg = ' [-] Request failed'
         try:
-            print(" [+] Getting IDs of documents related to " + term + "...")
-            # print(' [+] Requesting %s' % url)
-
             req = Request(url, headers={'User-Agent': self.headers})
             hdl = self.opener.open(req)
             data = hdl.read()
             return self.parse_uids(data)
 
         except Exception as err:
-            print(err_msg + ': %s' % err)
             return None
 
     def parse_uids(self, json_data):
@@ -195,23 +190,16 @@ class docHandler:
         rettype = "abstract"
         retmode = "xml"
         url = self.fetch_base_url + "db=" + db + "&rettype=" + rettype + "&retmode=" + retmode + "&id=" + uids
-
-        err_msg = ' [-] Request failed'
         try:
-            print(" [+] Fetching abstracts...")
-            # print(' [+] Requesting %s' % url)
-
             req = Request(url=url, headers={'User-Agent': self.headers})
             hdl = self.opener.open(req)
             data = hdl.read()
             return self.parse_abstracts(data)
 
         except Exception as err:
-            print(err_msg + ': %s' % err)
             return None
 
     def parse_abstracts(self, abstracts):
-        print(" [+] Parsing abstracts...")
         abstract_text = []
         # Decode from byte to string
         abstract = abstracts.decode("utf-8")
