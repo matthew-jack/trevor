@@ -1,4 +1,5 @@
 # Matthew Jack
+# matthew-jack@uiowa.edu
 
 import sys
 import os
