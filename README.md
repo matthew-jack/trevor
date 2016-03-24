@@ -12,9 +12,13 @@ Live on Heroku at https://trevor-web.herokuapp.com/
 ### Version
 v1.0 :tada: - full web app release; still little/bad error handling, lack of features and polish
 
+~~0.1b - incomplete and buggy; full release planned~~
+
 #### Todo
-* Add support for multiple crawl queries
+* Major NLP overhaul (long-term goal)
+* Compare results from multiple topics
 * Add error/exception handling
+* Make the interface pretty
 * BUG FIXES!!!!!!111!
 
 ### Libraries
